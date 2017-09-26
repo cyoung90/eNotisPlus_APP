@@ -23,7 +23,7 @@
 <!-- 본문 시작 -->
 <div class="layer">
 	<span class="content">
-	<div class="titleText font-effect-ice"><h1>eNotis+</h1></div>
+	<div id="titleText" class="titleText font-effect-ice"><h1>eNotis+</h1></div>
 		<div class="demo-card-square mdl-card mdl-shadow--4dp">
 			<div class="mdl-card__title mdl-card--expand">
 				<table style="width: 100%;">
@@ -58,7 +58,39 @@
 		</div>
 	</span>
 </div>
+<dialog class="mdl-dialog">
+	<div class="mdl-dialog__content" style="text-align: center;">
+		<p><img src="images/QRCodeImg.png"/></p>
+		<h4>Short URL : goo.gl/nokC5p</h4>
+	</div>
+	<div class="mdl-dialog__actions">
+		<button type="button" class="mdl-button close">닫기</button>
+	</div>
+</dialog>
 <!-- 본문 끝 -->
-	<script src="scripts/home.js" async></script>
 </body>
+<footer>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setDialog();
+		});
+		
+		function setDialog(){
+			var dialog = document.querySelector('dialog');
+			var showDialogButton = document.querySelector('#titleText');
+			if (! dialog.showModal) {
+			   dialogPolyfill.registerDialog(dialog);
+			}
+			showDialogButton.addEventListener('click', function() {
+			   dialog.showModal();
+			});
+			dialog.querySelector('.close').addEventListener('click', function() {
+			   dialog.close();
+			});
+		}
+	</script>
+
+	<script src="scripts/home.js" async></script>
+	
+</footer>
 </html>
