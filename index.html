@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>eNotis+</title>
+		
+	<!-- TODO add manifest here -->
+  	<link rel="manifest" href="/manifest.json">
+	<!-- Add to home screen for Safari on iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="eNotis+">
+	<link rel="apple-touch-icon" href="images/eNotisIcons/Icon_144_144.png">
+	<meta name="msapplication-TileImage" content="images/eNotisIcons/Icon_144_144.png">
+	<meta name="msapplication-TileColor" content="#2F3BA2">
+	
+	<link rel="import" href="include/header.html">
+	
 </head>
 <body>
-	여기는 / 테스트
-	<a href="html/login.html">html로 가기</a>
+<!-- 본문 시작 -->
+<div class="layer">
+	<span class="content">
+	<div class="titleText font-effect-ice"><h1>eNotis+</h1></div>
+		<div class="demo-card-square mdl-card mdl-shadow--4dp">
+			<div class="mdl-card__title mdl-card--expand">
+				<table style="width: 100%;">
+					<colgroup>
+						<col width="30%">
+						<col width="70%">
+					</colgroup>
+					<tr class="onepassText">
+						<td colspan="2">One-Pass</td>
+					</tr>
+					<tr>
+						<td>아이디</td>
+						<td><input type="text" id="id" name="id" class="login_input"/></td>
+					</tr>
+					<tr>
+						<td>패스워드</td>
+						<td><input type="password" id="pw" name="pw" class="login_input"/></td>
+					</tr>
+					<tr align="center">
+						<td colspan="2">
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+									type="submit" id="btn_login">One-Pass 로그인
+							</button>
+						</td>
+					</tr>
+					<tr style="font-size: small;">
+						<td>ID저장</td>
+						<td align="right">비밀번호 초기화 | One-Pass란?</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</span>
+</div>
+<!-- 본문 끝 -->
 </body>
 </html>
