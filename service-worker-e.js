@@ -1,11 +1,11 @@
 var cacheName = 'eNotis+_step_1_0';
 // 캐시 저장소
 var filesToCache = [
-	'/',
-	'/index.html',
-	'/scripts/home.js',
-	'/styles/base.css',
-	'/styles/inline.css',
+	'',
+	'index.html',
+	'scripts/home.js',
+	'styles/base.css',
+	'styles/inline.css',
 	
 ];
 
