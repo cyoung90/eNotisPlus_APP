@@ -7,74 +7,168 @@
 	<title>eNotis+</title>
 		
 	<!-- TODO add manifest here -->
-  	<link rel="manifest" href="manifest.json">
+	<link rel="manifest" href="manifest.json">
 	<!-- Add to home screen for Safari on iOS -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-title" content="eNotis+">
-	<link rel="apple-touch-icon" href="images/eNotisIcons/Icon_144_144.png">
-	<meta name="msapplication-TileImage" content="images/eNotisIcons/Icon_144_144.png">
-	<meta name="msapplication-TileColor" content="#2F3BA2">
+	<link rel="apple-touch-icon" href="images/app-icons/icon-144x144.png">
+	<meta name="msapplication-TileImage" content="images/app-icons/icon-144x144.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<!-- Window title icon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="msapplication-starturl" content="index.html">
+	<!-- <link rel="canonical" href="localhost/"> -->
 	
 	<link rel="import" href="include/header.html">
-	
 </head>
 <body>
 <!-- 본문 시작 -->
-<div class="layer">
-	<span class="content">
-	<div id="titleText" class="titleText font-effect-ice"><h1>eNotis+</h1></div>
-		<div class="demo-card-square mdl-card mdl-shadow--4dp">
-			<div class="mdl-card__title mdl-card--expand">
-				<table style="width: 100%;">
-					<colgroup>
-						<col width="30%">
-						<col width="70%">
-					</colgroup>
-					<tr class="onepassText">
-						<td colspan="2">One-Pass</td>
-					</tr>
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" id="id" name="id" class="login_input"/></td>
-					</tr>
-					<tr>
-						<td>패스워드</td>
-						<td><input type="password" id="pw" name="pw" class="login_input"/></td>
-					</tr>
-					<tr align="center">
-						<td colspan="2">
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-									type="submit" id="btn_login">One-Pass 로그인
-							</button>
-						</td>
-					</tr>
-					<tr style="font-size: small;">
-						<td>ID저장</td>
-						<td align="right">비밀번호 초기화 | One-Pass란?</td>
-					</tr>
-				</table>
+	<div class="layer">
+		<span class="content">
+		<div id="titleText" class="titleText font-effect-ice"><h1>eNotis+</h1></div>
+			<div class="demo-card-square mdl-card mdl-shadow--4dp">
+				<div class="mdl-card__title mdl-card--expand">
+					<table style="width: 100%;">
+						<colgroup>
+							<col width="30%">
+							<col width="70%">
+						</colgroup>
+						<tr class="onepassText">
+							<td colspan="2">One-Pass</td>
+						</tr>
+						<tr>
+							<td>아이디</td>
+							<td><input type="text" id="id" name="id" class="login_input"/></td>
+						</tr>
+						<tr>
+							<td>패스워드</td>
+							<td><input type="password" id="pw" name="pw" class="login_input"/></td>
+						</tr>
+						<tr align="center">
+							<td colspan="2">
+								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+										type="submit" id="btn_login">One-Pass 로그인
+								</button>
+							</td>
+						</tr>
+						<tr style="font-size: small;">
+							<td>
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="chk_autoLogin">
+									<input type="checkbox" id="chk_autoLogin" value="true" class="mdl-checkbox__input">
+									<span class="mdl-checkbox__label" style="font-size: 93%">자동로그인</span>
+								</label>
+							</td>
+							<td align="right">비밀번호 초기화 | One-Pass란?</td>
+						</tr>
+					</table>
+				</div>
 			</div>
+		</span>
+	</div>
+	<dialog class="mdl-dialog">
+		<div class="mdl-dialog__content" style="text-align: center;">
+			<p id="qrCodeName"><img src="images/QRCodeImg.png"/></p>
+			<h4>Short URL : <span id="shortUrl">goo.gl/ryYDgg</span></h4>
 		</div>
-	</span>
-</div>
-<dialog class="mdl-dialog">
-	<div class="mdl-dialog__content" style="text-align: center;">
-		<p><img src="images/QRCodeImg.png"/></p>
-		<h4>Short URL : goo.gl/nokC5p</h4>
-	</div>
-	<div class="mdl-dialog__actions">
-		<button type="button" class="mdl-button close">닫기</button>
-	</div>
-</dialog>
+		<div class="mdl-dialog__actions">
+			<button type="button" class="mdl-button close">닫기</button>
+		</div>
+	</dialog>
 <!-- 본문 끝 -->
+	<form id="commonForm" name="commonForm"></form>
 </body>
 <footer>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			setDialog();
+			
+			// network Check
+			if (!navigator.onLine) {
+				alert("OFFLINE");
+				//return false;
+			}
+			
+			$(".login_input").on("keydown", function(event){
+				if (event.keyCode == 13){
+					//fn_login();
+				}else {
+					return;
+				}
+				
+			});
+			
+			$("#btn_login").click(function(e) {
+				e.preventDefault();
+				//fn_login();
+			});
 		});
 		
+		function fn_login2() {
+			if ( gfn_isNull( $("#id").val().trim() )){
+				alert("아이디가 입력되지 않았습니다.");
+				$("#id").focus();
+				return false;
+			}
+			if ( gfn_isNull( $("#pw").val().trim() )){
+				alert("비밀번호가 입력되지 않았습니다.");
+				$("#pw").focus();
+				return false;
+			}
+			
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("main/login.do");
+			comSubmit.addParam("id", $("#id").val());
+			comSubmit.addParam("pw", $("#pw").val());
+			comSubmit.submit();
+		}
+		
+		function fn_login(){
+			if ( $("#id").val() == "e" || $("#pw").val() == "e" ){
+				$("#id").val("8300120");
+				$("#pw").val("init1234");
+			}
+			
+			if ( gfn_isNull( $("#id").val().trim() )){
+				alert("아이디가 입력되지 않았습니다.");
+				$("#id").focus();
+				return false;
+			}
+			if ( gfn_isNull( $("#pw").val().trim() )){
+				alert("비밀번호가 입력되지 않았습니다.");
+				$("#pw").focus();
+				return false;
+			}
+			
+			var comSubmit = new ComSubmit();
+			comSubmit.addParam("id", $("#id").val());
+			comSubmit.addParam("pw", $("#pw").val());
+			
+			var formData = $("#commonForm").serialize();
+			$.ajax({
+				type : "POST",
+	            cache : false,
+	            url : "main/loginProcess.do",
+	            data : formData,
+	            error:function(response, textStatus, errorThrown){
+	                console.log(response.status);
+	                console.log(textStatus);
+	            },
+	            success : function(data){
+	            	console.log("success");
+	            	
+	            	if(data.resultCd == "200") {
+						comSubmit.setUrl("main/home.do");
+	        			comSubmit.submit();
+	            	} else {
+	            		alert(data.msg);
+	            		$("#commonForm").html("")
+	            	}
+	            }
+	        });
+		}
+		
+		// QR Code 알림창 세팅 
 		function setDialog(){
 			var dialog = document.querySelector('dialog');
 			var showDialogButton = document.querySelector('#titleText');
@@ -90,7 +184,7 @@
 		}
 	</script>
 
-	<script src="scripts/home.js" async></script>
+	<script src="scripts/app.js" async></script>
 	
 </footer>
 </html>
