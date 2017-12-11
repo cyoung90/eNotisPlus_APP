@@ -25,16 +25,16 @@
  ******************************************************************************/
 	$(document).ready(function(){
 		
-		console.log("# localStorage.autoLogin >>>>>>>>>>>>>>>>>>>>>>>>", localStorage);
+console.log("# 1-1 localStorage.autoLogin >>>>>>>>>>>>>>>>>>>>>>>>", localStorage);
 		
 		// 자동로그인
 		if ( localStorage.autoLogin == 'true' ){
 			var user = JSON.parse( localStorage.user );
 			$("[for='chk_autoLogin']").addClass("is-checked");
-			console.log("# 1 >>>>>>>>>>>>>>>>>>>>>>>>", user);
+console.log("# 1-2 >>>>>>>>>>>>>>>>>>>>>>>>", user);
 			
 			if ( !gfn_isNull(user.ID) ) {
-				console.log("# 2 >>>>>>>>>>>>>>>>>>>>>>>>", user.ID);
+console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.ID);
 				$("#id").val( user.ID );
 				
 				localStorage.loginInit = "auto";
@@ -85,7 +85,7 @@
  * 
  ******************************************************************************/
 	app.saveUserInfo = function(data) {
-		
+console.log("#2-1 app.saveUserInfo");
 		var lastUpdateDt = new Date();
 		data.LAST_LOGIN_DT = lastUpdateDt;
 		
@@ -108,7 +108,7 @@
 		var host = window.location.host;
 		
 		var url = 'http://' + host + '/main/loginProcess.do?id=' + id + '&pw=' + pw;
-		
+console.log("#3-1 app.loginProcess");
 		if ( 'caches' in window ) {
 			caches.match(url).then(function(response) {
 				if (response) {
