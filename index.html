@@ -51,6 +51,13 @@
 								</button>
 							</td>
 						</tr>
+						<tr align="center">
+							<td colspan="2">
+								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+										type="submit" id="btn_test">Home Test Btn
+								</button>
+							</td>
+						</tr>
 						<tr style="font-size: small;">
 							<td>
 								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="chk_autoLogin">
@@ -101,24 +108,17 @@
 				e.preventDefault();
 				//fn_login();
 			});
+			
+			$("#btn_test").click(function(e) {
+				e.preventDefault();
+				fn_test();
+			});
 		});
 		
-		function fn_login2() {
-			if ( gfn_isNull( $("#id").val().trim() )){
-				alert("아이디가 입력되지 않았습니다.");
-				$("#id").focus();
-				return false;
-			}
-			if ( gfn_isNull( $("#pw").val().trim() )){
-				alert("비밀번호가 입력되지 않았습니다.");
-				$("#pw").focus();
-				return false;
-			}
-			
+		//TEST
+		function fn_test() {
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("main/login.do");
-			comSubmit.addParam("id", $("#id").val());
-			comSubmit.addParam("pw", $("#pw").val());
+			comSubmit.setUrl("../components/home/home.html");
 			comSubmit.submit();
 		}
 		

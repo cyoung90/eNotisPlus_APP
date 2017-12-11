@@ -107,7 +107,8 @@ console.log("#2-1 app.saveUserInfo");
 		
 		var host = window.location.host;
 		
-		var url = 'http://' + host + '/main/loginProcess.do?id=' + id + '&pw=' + pw;
+//		var url = 'http://' + host + '/main/loginProcess.do?id=' + id + '&pw=' + pw;
+		var url = 'http://192.168.0.2:8080/main/loginProcess?id=' + id + '&pw=' + pw;
 console.log("#3-1 app.loginProcess");
 		if ( 'caches' in window ) {
 			caches.match(url).then(function(response) {
