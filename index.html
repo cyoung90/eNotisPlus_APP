@@ -190,7 +190,7 @@
 			
 			var formData = $("#commonForm").serialize();
 			$.ajax({
-	            url : "http://192.168.56.188/main/loginProcess.do",
+	            url : "http://192.168.56.188/main/loginProcess2.do",
 	            data : formData,
 	            dataType : "jsonp",
 	            jsonp : "callback",
@@ -198,7 +198,7 @@
 console.log("success", data);
 	            	
 	            	if(data != null)    {
-	                    alert(data.result + ", " +  data.resultCd);
+	                    alert(data.result + ", " +  data.go);
 	                }
 	            }
 	        });
