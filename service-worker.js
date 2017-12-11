@@ -43,7 +43,7 @@ self.addEventListener('install', function(e) {
 self.addEventListener('fetch', function(e) {
 	console.log('[ServiceWorker] Fetch', e.request.url);
 	
-	var dataUrl = 'localhost';
+	var dataUrl = 'https://cyoung90.github.io/eNotisPlus_APP/';
 	if (e.request.url.indexOf(dataUrl) > -1) {
 		e.respondWith(
 		  caches.open(dataCacheName).then(function(cache) {
