@@ -1,0 +1,70 @@
+<meta charset="utf-8">
+<template>
+<div class="mdl-layout__drawer">
+	<header class="demo-drawer-header mdl-color--blue-grey-100"> <!-- mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 -->
+		<span class="mdl-layout-title">
+			<a href="../components/home/home.html">
+				<img src="../../images/user.jpg" class="demo-avatar">
+			</a>
+		</span>
+		<div class="demo-avatar-dropdown">
+			<ul>
+				<li><span id="userName">이름</span></li>
+				<li><span id="userId">hello@example.com</span></li>
+			</ul>
+			<div id="tooltip-userId" class="mdl-tooltip" data-mdl-for="userId">
+				hello@example.com
+			</div>
+			<div class="mdl-layout-spacer"></div>
+<!-- 			<button class="mdl-button show-modal mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+				<i class="material-icons" role="presentation">lock</i>
+			</button> -->
+ 			<button id="btn_lock" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+				<i class="material-icons" role="presentation">lock</i>
+				<span class="visuallyhidden">logout</span>
+			</button>
+			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="btn_lock">
+				<li id="btn_logout" class="mdl-menu__item" style="justify-content: center;display: flex;align-items: center;">
+					<span>로그아웃</span><i class="material-icons" role="presentation">lock_open</i>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<nav class="mdl-navigation "><!-- mdl-color--blue-grey-800 hAuto -->
+		<a class="mdl-navigation__link" href="../mail/writeMail.html">
+			<i class="material-icons" role="presentation">create</i>&nbsp;&nbsp;메일쓰기
+		</a>
+		<a class="mdl-navigation__link" href="../mail/receiveList.html">
+			<i class="material-icons" role="presentation">mail</i>&nbsp;&nbsp;받은메일함
+		</a>
+		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
+			<i class="material-icons" role="presentation">send</i>&nbsp;&nbsp;보낸메일함
+		</a>
+		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
+			<i class="material-icons" role="presentation">speaker_notes</i>&nbsp;&nbsp;공지사항
+		</a>
+		<a class="mdl-navigation__link closed-menu" href="${ctx}/cafeteria/receiveMenu.do">
+			<i class="material-icons" role="presentation">restaurant</i>&nbsp;&nbsp;주간식당메뉴
+		</a>
+		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
+			<i class="material-icons" role="presentation">phone</i>&nbsp;&nbsp;내선
+		</a>
+		<a class="mdl-navigation__link closed-menu" href="${ctx}/mail/receiveList.do">
+			<i class="material-icons" role="presentation">wb_sunny</i>&nbsp;&nbsp;날씨
+		</a>
+		<div class="mdl-layout-spacer"></div>
+		<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+	</nav>
+</div>
+	  
+<dialog class="mdl-dialog">
+  <div class="mdl-dialog__content">
+    <p>로그아웃 하시겠습니까?</p>
+  </div>
+  <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+    <button type="button" id="btn_logout" class="mdl-button">로그아웃</button>
+    <button type="button" class="mdl-button close">취소</button>
+  </div>
+</dialog>
+
+</template>

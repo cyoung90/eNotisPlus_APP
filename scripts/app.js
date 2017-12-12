@@ -107,10 +107,12 @@ console.log("#2-1 app.saveUserInfo");
 		
 		var host = window.location.host;
 		
-//		var url = 'http://' + host + '/main/loginProcess.do?id=' + id + '&pw=' + pw;
-		var url = 'http://192.168.0.2:8080/main/loginProcess?id=' + id + '&pw=' + pw;
+		var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
+		//var url = 'http://192.168.56.188:8080/main/loginProcess2?id=' + id + '&callback=' + callback;
 console.log("#3-1 app.loginProcess");
 		if ( 'caches' in window ) {
+console.log("#3-2 'caches' in window");
+console.log("#3-3 'caches match'", caches, url);
 			caches.match(url).then(function(response) {
 				if (response) {
 					response.json().then(function updateFromCache(json) {
@@ -123,7 +125,7 @@ console.log("#3-1 app.loginProcess");
 							var userInfo = results.userInfo;
 							app.saveUserInfo(userInfo);
 							localStorage.loginInit = "init";
-							app.moveComponent("/components/home/home.jsp");
+							app.moveComponent("/components/home/home.html");
 						}
 						
 						console.log("caches");
@@ -134,7 +136,9 @@ console.log("#3-1 app.loginProcess");
 		// Fetch the latest data.
 		var request = new XMLHttpRequest();
 		request.onreadystatechange = function() {
+console.log("#4-1 request.onreadystatechange");
 			if (request.readyState === XMLHttpRequest.DONE) {
+console.log("#4-2 request.readyState");
 				if (request.status === 200) {
 					var response = JSON.parse(request.response);
 					
@@ -146,7 +150,7 @@ console.log("#3-1 app.loginProcess");
 						var userInfo = results.userInfo;
 						app.saveUserInfo(userInfo);
 						localStorage.loginInit = "init";
-						app.moveComponent("/components/home/home.jsp");
+						app.moveComponent("/components/home/home.html");
 					} else {
 						alert(msg);
 					}
@@ -165,7 +169,7 @@ console.log("#3-1 app.loginProcess");
 //		var formData = $("#commonForm").serialize();
 //		console.log(formData);
 		
-		request.open('GET', url);
+		request.open('GET', url, true);
 		request.send();
 //		request.open('POST', 'http://' + host + '/main/loginProcess.do');
 //		request.send(formData);
@@ -188,6 +192,7 @@ console.log("#3-1 app.loginProcess");
 	// 화면 이동
 	app.moveComponent = function(url){
 		var comSubmit = new ComSubmit();
+		comSubmit.setMethod("GET");
 		comSubmit.setUrl(url);
 		comSubmit.submit();
 	}

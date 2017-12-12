@@ -73,3 +73,49 @@ td {
 /* 컨텐츠 페이지 여백 */
 .mdl-layout__content .page-content { padding:8px }
 .mdl-layout__content .page-content .mdl-card { margin:10px }
+
+
+/* 메뉴 설정위한 */
+	.mdl-layout-title a:link    { color: red; text-decoration: none;}
+	.mdl-layout-title a:visited { color: black; text-decoration: none;}
+	.mdl-layout-title a:hover   { color: black; text-decoration: none; }
+
+	.mdl-layout__drawer-button > .material-icons { margin-top: 10px;}
+	
+	/* user 프로필 */
+	.demo-avatar {
+	  width: 60px;
+	  height: 60px;
+	  border-radius: 30px;
+	}
+	/* user 프로필 */
+	.demo-drawer-header {
+	  box-sizing: border-box;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  -webkit-flex-direction: column;
+	      -ms-flex-direction: column;
+	          flex-direction: column;
+	  -webkit-justify-content: flex-end;
+	      -ms-flex-pack: end;
+	          justify-content: flex-end;
+	  padding: 16px 16px 0 16px;
+	  height: 151px;
+	}
+	/* user 프로필 */
+	.demo-avatar-dropdown {
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	  position: relative;
+	  -webkit-flex-direction: row;
+	      -ms-flex-direction: row;
+	          flex-direction: row;
+	  -webkit-align-items: center;
+	      -ms-flex-align: center;
+	          align-items: center;
+	  width: 100%;
+	}
+	ul { list-style:none; padding-left:0px; }
+	

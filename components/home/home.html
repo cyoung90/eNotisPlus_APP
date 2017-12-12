@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="import" href="../../include/include-header.html">
+	<meta charset="utf-8">
+	<link rel="import" id="link-include-header" href="../../include/include-header.html">
+	<link rel="import" id="link-include-leftMenu" href="../../include/include-leftMenu.html">
+	<link rel="import" id="link-include-body" href="../../include/include-body.html">
+	
+	<script src="../../js/material/material.min.js" charset="utf-8"></script>
+	<script src="../../js/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script src="../../js/common.js" charset="utf-8"></script>
+	<script src="home.js" charset="utf-8"></script>
 	
 	<style type="text/css">
 		.mdl-card {text-align: center; height:120%}
@@ -16,7 +24,7 @@
 	</style>
 </head>
 <body>
-<!-- º»¹® ½ÃÀÛ -->
+<!-- ë³¸ë¬¸ ì‹œì‘ -->
 <!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <header class="mdl-layout__header">
@@ -33,7 +41,7 @@
       </div> -->
     </div>
   </header>
-<!-- <jsp:include page="../../include/include-leftMenu.html"/> -->
+
   <main class="mdl-layout__content mdl-color--grey-100">
   	<div class="mdl-grid demo-content">
   	
@@ -45,7 +53,7 @@
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-					<h4>ÁÖ°£½Ä´ç¸Ş´º</h4>
+					<h4>ì£¼ê°„ì‹ë‹¹ë©”ë‰´</h4>
 			</div>
 		</div>
 
@@ -57,7 +65,7 @@
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<h4>¸ŞÀÏ</h4>
+				<h4>ë©”ì¼</h4>
 			</div>
 		</div>
 
@@ -69,7 +77,7 @@
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<h4>°øÁö»çÇ×</h4>
+				<h4>ê³µì§€ì‚¬í•­</h4>
 			</div>
 		</div>
 		<div class="mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid mdl-cell--12-col-tablet mdl-cell--6-col-desktop
@@ -80,7 +88,7 @@
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<h4>³»¼±</h4>
+				<h4>ë‚´ì„ </h4>
 			</div>
 		</div>
 		<div class="mdl-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid mdl-cell--12-col-tablet mdl-cell--6-col-desktop
@@ -91,7 +99,7 @@
 				</p>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<h4>³¯¾¾</h4>
+				<h4>ë‚ ì”¨</h4>
 			</div>
 		</div>
   
@@ -101,16 +109,31 @@
 
 
   
-	<!-- ·Î±×ÀÎ Åä½ºÆ® ¾×¼Ç -->
+	<!-- ë¡œê·¸ì¸ í† ìŠ¤íŠ¸ ì•¡ì…˜ -->
 	<input id="demo-show-toast" class="mdl-button mdl-js-button mdl-button--raised" type="hidden"/>
 	<div id="demo-toast-login" class="mdl-js-snackbar mdl-snackbar">
 		<div class="mdl-snackbar__text"></div>
 		<button class="mdl-snackbar__action" type="button"></button>
 	</div>
 </div>
-<!-- º»¹® ³¡ -->
-<jsp:include page="../../include/include-body.html"/>
+<!-- ë³¸ë¬¸ ë -->
+<div id="include-body"></div>
+
+</body>
+<footer>
 	<script type="text/javascript">
+
+<!--------------------- header, leftMenu import ---------------------------->
+    var header = document.querySelector('#link-include-header');
+    var header_temp = header.import.querySelector('template');
+    var header_clone = document.importNode(header_temp.content, true);
+    document.querySelector('head').appendChild(header_clone);
+    
+    var leftMenu = document.querySelector("#link-include-leftMenu");
+    var leftMenu_temp = leftMenu.import.querySelector("template");
+    var leftMenu_clone = document.importNode(leftMenu_temp.content, true);
+    $("header").after(leftMenu_clone);
+<!--------------------- header, leftMenu import ---------------------------->
 
 		var loginCd = localStorage.loginInit;
 		
@@ -119,13 +142,14 @@
 		});
 		
 		$(window).load(function(){
-			
+
+		    
 			if ( !gfn_isNull(loginCd) ) {
 				$("#demo-show-toast").click();
 			}
 		});
 
-		// ·Î±×ÀÎ Åä½ºÆ® ¾×¼Ç
+		// ë¡œê·¸ì¸ í† ìŠ¤íŠ¸ ì•¡ì…˜
 		(function() {
 			'use strict';
 			var snackbarContainer = document.querySelector('#demo-toast-login');
@@ -136,14 +160,14 @@
 			showToastButton.addEventListener('click', function() {
 				'use strict';
 				
-				var toastMsg = user.NAME + "´Ô È¯¿µÇÕ´Ï´Ù. "
-				var network = ( navigator.onLine ? '¿Â¶óÀÎ' : '¿ÀÇÁ¶óÀÎ' );
+				var toastMsg = user.NAME + "ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤. "
+				var network = ( navigator.onLine ? 'ì˜¨ë¼ì¸' : 'ì˜¤í”„ë¼ì¸' );
 				switch (loginCd){
 					case "init" :
-						toastMsg += network + " ·Î±×ÀÎ";
+						toastMsg += network + " ë¡œê·¸ì¸";
 						break;
 					case "auto" :
-						toastMsg += "ÀÚµ¿·Î±×ÀÎ";
+						toastMsg += "ìë™ë¡œê·¸ì¸";
 						break;
 				}
 				
@@ -154,16 +178,6 @@
 			
 
 		}());
-		
-	</script>
-</body>
-<footer>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			
-		});
-		
-		
 		
 	</script>
 

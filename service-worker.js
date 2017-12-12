@@ -7,16 +7,16 @@ var filesToCache = [
 	'/scripts/app.js',
 	'/styles/base.css',
 	'/styles/inline.css',
-	'/include/header.html',
-	'/include/leftMenu.html',
-	'/include/include-body.jsp',
-	'/common/taglibs.jsp',
+	'/include/include-body.html',
+	'/include/include-header.html',
+	'/include/include-leftMenu.html',
 
 	//componets
-	'/components/home/home.jsp',
+	'/components/home/home.html',
+	'/components/home/home.js',
 	
-	'/components/mail/writeMail.jsp',
-	'/components/home/homeApp.js'		// , 조심!!
+	'/components/mail/writeMail.html',
+	'/components/mail/receiveList.html'	// , 조심!!
 	/*	
 	'/components/home/homeApp.js'*/
 	];
