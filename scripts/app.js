@@ -106,8 +106,8 @@ console.log("#2-1 app.saveUserInfo");
 	app.loginProcess = function(id, pw) {
 		
 		var host = window.location.host;
-		
-		var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
+		var url = 'https://beacon.daekyo.com:8443/eNotisPlus/?id=' + id + '&pw=' + pw;
+		//var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://192.168.56.188:8080/main/loginProcess2?id=' + id + '&callback=' + callback;
 console.log("#3-1 app.loginProcess");
 		if ( 'caches' in window ) {
