@@ -2,21 +2,21 @@ var dataCacheName = 'eNotis+_Data-v1';
 var cacheName = 'eNotis+_step_1_1';
 // 캐시 저장소
 var filesToCache = [
-	'/',
-	'/index.html',
-	'/scripts/app.js',
-	'/styles/base.css',
-	'/styles/inline.css',
-	'/include/include-body.html',
-	'/include/include-header.html',
-	'/include/include-leftMenu.html',
+	'/eNotisPlus_APP/',
+	'/eNotisPlus_APP/index.html',
+	'/eNotisPlus_APP/scripts/app.js',
+	'/eNotisPlus_APP/styles/base.css',
+	'/eNotisPlus_APP/styles/inline.css',
+	'/eNotisPlus_APP/include/include-body.html',
+	'/eNotisPlus_APP/include/include-header.html',
+	'/eNotisPlus_APP/include/include-leftMenu.html',
 
 	//componets
-	'/components/home/home.html',
-	'/components/home/home.js',
+	'/eNotisPlus_APP/components/home/home.html',
+	'/eNotisPlus_APP/components/home/home.js',
 	
-	'/components/mail/writeMail.html',
-	'/components/mail/receiveList.html'	// , 조심!!
+	'/eNotisPlus_APP/components/mail/writeMail.html',
+	'/eNotisPlus_APP/components/mail/receiveList.html'	// , 조심!!
 	/*	
 	'/components/home/homeApp.js'*/
 	];
