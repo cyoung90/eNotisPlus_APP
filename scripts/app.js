@@ -125,7 +125,7 @@ console.log("#3-3 'caches match'", caches, url);
 							var userInfo = results.userInfo;
 							app.saveUserInfo(userInfo);
 							localStorage.loginInit = "init";
-							app.moveComponent("/components/home/home.html");
+							app.moveComponent("/eNotisPlus_APP/components/home/home.html");
 						}
 						
 						console.log("caches");
@@ -150,7 +150,7 @@ console.log("#4-2 request.readyState");
 						var userInfo = results.userInfo;
 						app.saveUserInfo(userInfo);
 						localStorage.loginInit = "init";
-						app.moveComponent("/components/home/home.html");
+						app.moveComponent("/eNotisPlus_APP/components/home/home.html");
 					} else {
 						alert(msg);
 					}
