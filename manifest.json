@@ -5,8 +5,8 @@
   "background_color": "#FFFFFF",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/",
-  "start_url": "/",
+  "Scope": "/eNotisPlus_APP/",
+  "start_url": "/eNotisPlus_APP/",
   "icons": [
     {
       "src": "images/app-icons/icon-72x72.png",
