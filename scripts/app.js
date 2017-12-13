@@ -206,6 +206,8 @@ console.log("#4-2 request.readyState");
  * (https://www.npmjs.com/package/idb) or SimpleDB
  * (https://gist.github.com/inexorabletash/c8069c042b734519680c)
  ******************************************************************************/
+
+	
 	app.user = localStorage.user;
 	app.autoLogin = localStorage.autoLogin;
 	if (app.user) {
