@@ -7,11 +7,11 @@
 		</span>
 		<div class="demo-avatar-dropdown">
 			<ul>
-				<li><span id="userName">이름</span></li>
-				<li><span id="userId">hello@example.com</span></li>
+				<li><span id="userName">로그인필요</span></li>
+				<li><span id="userId">이메일정보 없음</span></li>
 			</ul>
 			<div id="tooltip-userId" class="mdl-tooltip" data-mdl-for="userId">
-				hello@example.com
+				이메일정보 없음
 			</div>
 			<div class="mdl-layout-spacer"></div>
 <!-- 			<button class="mdl-button show-modal mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -63,3 +63,38 @@
     <button type="button" class="mdl-button close">취소</button>
   </div>
 </dialog>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	
+		$(".closed-menu").on("click", function(){
+			alert("서비스 준비중입니다.");
+			return false;
+		})
+
+		$("#btn_logout").click(function(){
+			 logoutProcess();
+		});
+
+		var user = JSON.parse( localStorage.user );
+		var userMail = user.MAIL;
+			
+		$("#userName").text( user.NAME );
+		$("#tooltip-userId").text( userMail );
+		
+		if ( userMail.length >= 20 ){
+			userMail = userMail.substr(0, 20) + "...";
+		}
+		
+		$("#userId").text( userMail );
+	});
+	
+	// 로그아웃, 로컬저장소 초기화
+	function logoutProcess(){
+		localStorage.clear();
+		var comSubmit = new ComSubmit();
+		comSubmit.setUrl("/");
+		comSubmit.setMethod("GET");
+		comSubmit.submit();
+	}
+</script>
