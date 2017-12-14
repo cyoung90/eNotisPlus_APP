@@ -208,7 +208,6 @@ console.log("#4-2 request.readyState");
  * (https://gist.github.com/inexorabletash/c8069c042b734519680c)
  ******************************************************************************/
 
-alert("app #3" + app);
 	app.user = localStorage.user;
 	app.autoLogin = localStorage.autoLogin;
 	if (app.user) {
