@@ -41,7 +41,7 @@
       </div> -->
     </div>
   </header>
-
+<div id="include-leftMenu" class="mdl-layout__drawer"></div>
   <main class="mdl-layout__content mdl-color--grey-100">
   	<div class="mdl-grid demo-content">
   	
@@ -124,15 +124,7 @@
 	<script type="text/javascript">
 
 <!--------------------- header, leftMenu import ---------------------------->
-    var header = document.querySelector('#link-include-header');
-    var header_temp = header.import.querySelector('template');
-    var header_clone = document.importNode(header_temp.content, true);
-    document.querySelector('head').appendChild(header_clone);
-    
-    var leftMenu = document.querySelector("#link-include-leftMenu");
-    var leftMenu_temp = leftMenu.import.querySelector("template");
-    var leftMenu_clone = document.importNode(leftMenu_temp.content, true);
-    $("header").after(leftMenu_clone);
+	$("#include-leftMenu").load("/eNotisPlus_APP/include/include-leftMenu.html")
 <!--------------------- header, leftMenu import ---------------------------->
 
 		var loginCd = localStorage.loginInit;
