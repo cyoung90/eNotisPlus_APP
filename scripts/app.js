@@ -105,7 +105,7 @@ console.log("#2-1 app.saveUserInfo");
  ******************************************************************************/
 	// 로그인
 	app.loginProcess = function(id, pw) {
-		
+alert("app #1");
 		var url = 'https://beacon.daekyo.com:8443/eNotisPlus/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://192.168.56.188:8080/main/loginProcess2?id=' + id + '&callback=' + callback;
@@ -113,6 +113,8 @@ console.log("#3-1 app.loginProcess");
 		if ( 'caches' in window ) {
 console.log("#3-2 'caches' in window");
 console.log("#3-3 'caches match'", caches, url);
+
+alert("url #2"+url);
 			caches.match(url).then(function(response) {
 				if (response) {
 					response.json().then(function updateFromCache(json) {
@@ -207,7 +209,7 @@ console.log("#4-2 request.readyState");
  * (https://gist.github.com/inexorabletash/c8069c042b734519680c)
  ******************************************************************************/
 
-	
+alert("app #3" + app);
 	app.user = localStorage.user;
 	app.autoLogin = localStorage.autoLogin;
 	if (app.user) {
