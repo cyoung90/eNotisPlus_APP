@@ -109,58 +109,7 @@
 				
 			});
 			
-			$("#btn_login").click(function(e) {
-				e.preventDefault();
-				//fn_login();
-			});
-			
 		});
-		
-		
-		function fn_login3(){
-			if ( $("#id").val() == "e" || $("#pw").val() == "e" ){
-				$("#id").val("8300120");
-				$("#pw").val("init1234");
-			}
-			
-			if ( gfn_isNull( $("#id").val().trim() )){
-				alert("아이디가 입력되지 않았습니다.");
-				$("#id").focus();
-				return false;
-			}
-			if ( gfn_isNull( $("#pw").val().trim() )){
-				alert("비밀번호가 입력되지 않았습니다.");
-				$("#pw").focus();
-				return false;
-			}
-			
-			var comSubmit = new ComSubmit();
-			comSubmit.addParam("id", $("#id").val());
-			comSubmit.addParam("pw", $("#pw").val());
-			
-			var formData = $("#commonForm").serialize();
-			$.ajax({
-				type : "POST",
-	            cache : false,
-	            url : "main/loginProcess.do",
-	            data : formData,
-	            error:function(response, textStatus, errorThrown){
-	                console.log(response.status);
-	                console.log(textStatus);
-	            },
-	            success : function(data){
-	            	console.log("success");
-	            	
-	            	if(data.resultCd == "200") {
-						comSubmit.setUrl("main/home.do");
-	        			comSubmit.submit();
-	            	} else {
-	            		alert(data.msg);
-	            		$("#commonForm").html("")
-	            	}
-	            }
-	        });
-		}
 		
 		function fn_login(){
 			if ( $("#id").val() == "e" || $("#pw").val() == "e" ){

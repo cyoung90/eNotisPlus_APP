@@ -105,7 +105,7 @@ console.log("#2-1 app.saveUserInfo");
  ******************************************************************************/
 	// 로그인
 	app.loginProcess = function(id, pw) {
-alert("app #1");
+
 		var url = 'https://beacon.daekyo.com:8443/eNotisPlus/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://192.168.56.188:8080/main/loginProcess2?id=' + id + '&callback=' + callback;
@@ -114,7 +114,6 @@ console.log("#3-1 app.loginProcess");
 console.log("#3-2 'caches' in window");
 console.log("#3-3 'caches match'", caches, url);
 
-alert("url #2"+url);
 			caches.match(url).then(function(response) {
 				if (response) {
 					response.json().then(function updateFromCache(json) {
@@ -139,7 +138,7 @@ alert("url #2"+url);
 		var request = new XMLHttpRequest();
 		request.onreadystatechange = function() {
 console.log("#4-1 request.onreadystatechange");
-			if (request.readyState === XMLHttpRequest.DONE) {
+			//if (request.readyState === XMLHttpRequest.DONE) {
 console.log("#4-2 request.readyState");
 				if (request.status === 200) {
 					var response = JSON.parse(request.response);
@@ -159,10 +158,10 @@ console.log("#4-2 request.readyState");
 					
 					console.log("XMLHttpRequest");
 				}
-			} else {
+	/*		} else {
 				// Return the initial weather forecast since no data is available.
 				//app.updateForecastCard(initialWeatherForecast);
-			}
+			}*/
 		};
 //		var comSubmit = new ComSubmit();
 //		comSubmit.addParam("id", $("#id").val());
