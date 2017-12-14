@@ -61,13 +61,6 @@
 								</button>
 							</td>
 						</tr>
-						<tr align="center">
-							<td colspan="2">
-								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-										type="submit" id="btn_test">Home Test Btn
-								</button>
-							</td>
-						</tr>
 						<tr style="font-size: small;">
 							<td>
 								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="chk_autoLogin">
@@ -121,20 +114,7 @@
 				//fn_login();
 			});
 			
-			$("#btn_test").click(function(e) {
-				e.preventDefault();
-				fn_test();
-			});
 		});
-		
-		//TEST
-		function fn_test() {
-console.log("fn_test");
-			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("components/home/home.html");
-console.log("comSubmit", comSubmit);
-			comSubmit.submit();
-		}
 		
 		
 		function fn_login3(){
