@@ -2,14 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="import" id="link-include-header" href="../../include/include-header.html">
-	<link rel="import" id="link-include-leftMenu" href="../../include/include-leftMenu.html">
-	<link rel="import" id="link-include-body" href="../../include/include-body.html">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>eNotis+</title>
 	
-	<script src="../../js/material/material.min.js" charset="utf-8"></script>
-	<script src="../../js/jquery-1.9.1.min.js" charset="utf-8"></script>
-	<script src="../../js/common.js" charset="utf-8"></script>
-	<!-- <script src="home.js" charset="utf-8"></script> -->
+	<script src="/eNotisPlus_APP/js/material/material.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/common.js" charset="utf-8"></script>
+	<script src="home.js" charset="utf-8"></script>
+	
+	<link rel="import" id="link-include-header" href="/eNotisPlus_APP/include/include-header.html">
 </head>
 <body>
 <!-- 본문 시작 -->
@@ -33,7 +35,8 @@
 			</nav>
 		</div>
 	</header>
-<main class="mdl-layout__content">
+<div id="include-leftMenu" class="mdl-layout__drawer"></div>
+	<main class="mdl-layout__content">
 		<div class="page-content">
 			<div class="demo-card mdl-card mdl-shadow--2dp mdl-color--grey-100 wAuto">
 				<div class="mdl-card__title header-section">
@@ -79,17 +82,10 @@
 <footer>
 	<script type="text/javascript">
 
-<!--------------------- header, leftMenu import ---------------------------->
-    var header = document.querySelector('#link-include-header');
-    var header_temp = header.import.querySelector('template');
-    var header_clone = document.importNode(header_temp.content, true);
-    document.querySelector('head').appendChild(header_clone);
-    
-    var leftMenu = document.querySelector("#link-include-leftMenu");
-    var leftMenu_temp = leftMenu.import.querySelector("template");
-    var leftMenu_clone = document.importNode(leftMenu_temp.content, true);
-    $("header").after(leftMenu_clone);
-<!--------------------- header, leftMenu import ---------------------------->
+<!--------------------- common code start---------------------------->
+	$("#include-leftMenu").load("/eNotisPlus_APP/include/include-leftMenu.html");
+	$("#include-body").load("/eNotisPlus_APP/include/include-body.html");
+<!--------------------- common code end ----------------------------->
 
 function fn_send(){
 	
