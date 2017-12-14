@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>eNotis+</title>
+	
+	<script src="/eNotisPlus_APP/js/material/material.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/common.js" charset="utf-8"></script>
+	
+	<link rel="import" id="link-include-header" href="/eNotisPlus_APP/include/include-header.html">
+	
+		<style type="text/css">
+		.demo-card-wide.mdl-card {
+		  width: 1200px;
+		}
+		.mdl-card__title   {width:100%; height: 60%}
+		.mdl-card__title p {text-align:center; width:100%}
+		.mdl-card__title {background-color: #E74C3C;}
+		.main-btn1>.mdl-card__title {background-color: #E74C3C;}
+		.main-btn2>.mdl-card__title {background-color: #32B2DF;}
+	</style>
+</head>
+<body>
+<!-- 본문 시작 -->
+<!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header mdl-layout--fixed-tabs">
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<span class="mdl-layout-title">주간 점심 메뉴표</span>
+	    </div>
+		<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+			<a href="#fixed-tab-1" class="mdl-layout__tab is-active">월</a>
+			<a href="#fixed-tab-2" class="mdl-layout__tab">화</a>
+			<a href="#fixed-tab-3" class="mdl-layout__tab">수</a>
+			<a href="#fixed-tab-4" class="mdl-layout__tab">목</a>
+			<a href="#fixed-tab-5" class="mdl-layout__tab">금</a>
+	    </div>
+	</header>
+<div id="include-leftMenu" class="mdl-layout__drawer"></div>
+<main class="mdl-layout__content">
+	<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+		<div class="page-content">
+			<!-- Your content goes here -->
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn1">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">local_pizza</i>
+						<i>일품</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>오징어덮밥</h4>
+				</div>
+			</div>
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn2">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">restaurant_menu</i>
+						<i>한식</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>안동찜닭</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+		<div class="page-content">
+			<!-- Your content goes here -->
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn1">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">local_pizza</i>
+						<i>일품</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>치킨카레라이스</h4>
+				</div>
+			</div>
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn2">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">restaurant_menu</i>
+						<i>한식</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>떡만두국</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+		<div class="page-content">
+			<!-- Your content goes here -->
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn1">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">local_pizza</i>
+						<i>일품</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>김치볶음밥</h4>
+				</div>
+			</div>
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn2">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">restaurant_menu</i>
+						<i>한식</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>고등어사래기조림</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mdl-layout__tab-panel" id="fixed-tab-4">
+		<div class="page-content">
+			<!-- Your content goes here -->
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn1">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">local_pizza</i>
+						<i>일품</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>타워함박</h4>
+				</div>
+			</div>
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn2">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">restaurant_menu</i>
+						<i>한식</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>콩나물밥</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="mdl-layout__tab-panel" id="fixed-tab-5">
+		<div class="page-content">
+			<!-- Your content goes here -->
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn1">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">local_pizza</i>
+						<i>일품</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>뚝배기 알밥</h4>
+				</div>
+			</div>
+			<div class="mdl-card main-card mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+						mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect main-btn2">
+				<div class="mdl-card__title">
+					<p>
+						<i class="material-icons" role="presentation">restaurant_menu</i>
+						<i>한식</i>
+					</p>
+				</div>
+				<div class="mdl-card__actions mdl-card--border">
+					<h4>등뼈감자탕</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+</div>
+<!-- 본문 끝 -->
+<div id="include-body"></div>
+
+</body>
+<footer>
+	<script type="text/javascript">
+
+<!--------------------- common code start---------------------------->
+	$("#include-leftMenu").load("/eNotisPlus_APP/include/include-leftMenu.html");
+	$("#include-body").load("/eNotisPlus_APP/include/include-body.html");
+<!--------------------- common code end ----------------------------->
+
+$(document).ready(function(){
+	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
+	
+	var date = new Date();
+	var day = date.getDay();
+	switch (day){
+		case 1 : 
+		case 2 : 
+		case 3 : 
+		case 4 : 
+		case 5 : 
+			$(".mdl-layout__tab").removeClass("is-active");
+			$(".mdl-layout__tab-panel").removeClass("is-active");
+			$("[href='#fixed-tab-"+day+"']").addClass("is-active");
+			$("#fixed-tab-"+day).addClass("is-active");
+			break;
+	}
+});
+
+	</script>
+
+</footer>
+</html>
