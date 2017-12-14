@@ -39,7 +39,8 @@ console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.ID);
 				
 				localStorage.loginInit = "auto";
 				var comSubmit = new ComSubmit();
-				comSubmit.setUrl("/components/home/home.jsp");
+				comSubmit.setUrl("/eNotisPlus_APP/components/home/home.html");
+				comSubmit.setMethod("GET");
 				comSubmit.submit();
 			}
 		}
@@ -105,7 +106,6 @@ console.log("#2-1 app.saveUserInfo");
 	// 로그인
 	app.loginProcess = function(id, pw) {
 		
-		var host = window.location.host;
 		var url = 'https://beacon.daekyo.com:8443/eNotisPlus/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://192.168.56.188:8080/main/loginProcess2?id=' + id + '&callback=' + callback;
