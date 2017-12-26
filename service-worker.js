@@ -77,6 +77,31 @@ self.addEventListener('activate', function(e) {
   return self.clients.claim();
 });
 
+//01. 푸시 설정
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'eNotis+';
+  const options = {
+    body: 'eNotis+',
+    icon: 'images/app-icons/icon-72x72.png',
+    badge: 'images/app-icons/icon-72x72.png'
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+// 02. 알림 클릭
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker] Notification click Received.');
+
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow('https://cyoung90.github.io/eNotisPlus_APP/')
+  );
+});
 
 // 사용자 앱 설치
 
