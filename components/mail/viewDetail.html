@@ -56,19 +56,28 @@
 		<div class="page-content">
 			<div class="demo-card mdl-card mdl-shadow--2dp mdl-color--grey-100" style="width: auto;min-height: 150;" id="mail_header">
 				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">메일 제목입니다.</h2>
+					<h2 class="mdl-card__title-text">[SMOS] 회원데이터 생성, 컨텐츠복구</h2>
 				</div>
 				<div class="mdl-card__supporting-text">
 					<div>
-						<h>보낸사람 : </h>
+						<h6>보낸사람 : </h6>
 						<span class="mdl-chip mdl-chip--contact">
-						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
-						    <span class="mdl-chip__text">Contact Chip</span>
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">J</span>
+						    <span class="mdl-chip__text">김지환(jihwan_kim@daekyo.co.kr)</span>
 						</span>
 					</div>
 					<div>
-						날짜 : <span>2017년 9월 16일 오후 8:58</span>
+						<h6>참조 : </h6>
+						<span class="mdl-chip mdl-chip--contact">
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">Y</span>
+						    <span class="mdl-chip__text">김영배(youngbae.kim@daekyo.co.kr)</span>
+						</span>
+						<span class="mdl-chip mdl-chip--contact">
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">S</span>
+						    <span class="mdl-chip__text">유성현(sunghyun_yoo@daekyo.co.kr)</span>
+						</span>
 					</div>
+					<div>날짜 : <span>2017년 12월 16일 오후 4:58</span></div>
 				</div>
 				<div class="mdl-card__menu">
 					<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -77,14 +86,13 @@
 				</div>
 			</div>
 			<div class="demo-card mdl-card mdl-shadow--2dp" style="width: auto;min-height: 150 ; padding: 10px;white-space: pre-wrap;" id="mail-content">
-				같이 이상은 실로 인간의 부패를 방지하는 소금이라 할지니 인생에 가치를 주는 원질이 되는
-			것이다 그들은 앞이 긴지라 착목한는 곳이 원대하고 그들은 피가 더운지라 실현에 대한 자신과 용기가 있다 그러므로 그들은과 용기가 있다 그러므로 그들은
-			이상의 보배를 능히 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어 우리 인생을 풍부하게 하는 것이다 보라 청춘을
-			! 그들의 몸이 얼마나 튼튼하며 그들의 피부가 얼마나 생생하★
-			
-			며 그들의 눈에 무엇이 타오르고 있는가? 우리 눈이 그것을
-			보는 때에 우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다 뼈 끝에 스며들어 가는 열락의
-			소리다이것은 피어나기 전인 유소년에게서 구하지 못할 바이며
+안녕하세요. 대교CNS 김지환 입니다.
+
+차기 오픈예정인 스마트MOS  3.2.9 버전 개발에서,
+과목추가 외 개발사항에 대한 내용 공유드립니다.
+
+1. 회원데이터 생성 서버 개선
+2. 컨텐츠DB 자동 복구
 			</div>
 		</div>
 	</main>
@@ -107,6 +115,9 @@
 $(document).ready(function(){
 	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
 	
+	$("#btn_writeMail").click(function(){
+		common.openWriteMail();
+	});
 });
 
 var common = {
