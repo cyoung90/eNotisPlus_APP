@@ -55,25 +55,25 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr id="1" name="1">
+			    <tr id="idx_1" name="idx_1">
 			      <td class="mdl-data-table__cell--non-numeric">[SMOS] 회원데이터 생성, 컨텐츠복구</td>
 			      <td>김지환</td>
 			      <td>2017년 12월 16일 16:58</td>
 			      <td></td>
 			    </tr>
-			    <tr id="2" name="2">
+			    <tr id="idx_2" name="idx_2">
 			      <td class="mdl-data-table__cell--non-numeric">수학 C과정 18세트 채점 데이터 추출결과입니다.</td>
 			      <td>유성현</td>
 			      <td>2017년 12월 14일 13:50</td>
 			      <td></td>
 			    </tr>
-			    <tr id="3" name="3">
+			    <tr id="idx_3" name="idx_3">
 			      <td class="mdl-data-table__cell--non-numeric">프리미엄 김치 천년동안, 역시 탁월한 선택이었어요</td>
 			      <td>박소희</td>
 			      <td>2017년 12월 14일 11:37</td>
 			      <td></td>
 			    </tr>
-			    <tr id="4" name="4">
+			    <tr id="idx_4" name="idx_4">
 			      <td class="mdl-data-table__cell--non-numeric">Fwd:12월 정기PM 계획서입니다.</td>
 			      <td>김지환</td>
 			      <td>2017년 12월 13일 17:19</td>
@@ -102,7 +102,7 @@
 $(document).ready(function(){
 	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
 	
-    $("tr[name='index']").on("click", function(e){ //row 클릭
+    $("tr[name='idx_1']").on("click", function(e){ //row 클릭
         e.preventDefault();
         fn_openMailDetail($(this));
     });
