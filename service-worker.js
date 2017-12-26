@@ -18,7 +18,7 @@ var filesToCache = [
 	'/eNotisPlus_APP/components/cafe/cafeMenu.html',
 	'/eNotisPlus_APP/components/mail/receiveList.html',
 	'/eNotisPlus_APP/components/mail/viewDetail.html',
-	'/eNotisPlus_APP/components/mail/writeMail.html',	// , 조심!!
+	'/eNotisPlus_APP/components/mail/writeMail.html'	// , 조심!!
 	/*	
 	'/components/home/homeApp.js'*/
 	];
