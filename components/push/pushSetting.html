@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>eNotis+</title>
+	
+	<script src="/eNotisPlus_APP/js/material/material.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/common.js" charset="utf-8"></script>
+	
+	<link rel="import" id="link-include-header" href="/eNotisPlus_APP/include/include-header.html">
+	
+</head>
+<body>
+<!-- 본문 시작 -->
+<!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<header class="mdl-layout__header">
+	<div class="mdl-layout__header-row">
+		<span class="mdl-layout-title">PUSH 설정</span>
+      	<div class="mdl-layout-spacer"></div>
+	</div>
+	</header>
+<div id="include-leftMenu" class="mdl-layout__drawer"></div>
+	<main class="mdl-layout__content">
+	<div class="page-content">
+	    <p>
+	      <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+	        Enable Push Messaging
+	      </button>
+	    </p>
+	    <section class="subscription-details js-subscription-details is-invisible">
+	      <p>Once you've subscribed your user, you'd send their subscription to your
+	      server to store in a database so that when you want to send a message
+	      you can lookup the subscription and send a message to it.</p>
+	      <p>To simplify things for this code lab copy the following details
+	      into the <a href="https://web-push-codelab.glitch.me//">Push Companion
+	      Site</a> and it'll send a push message for you, using the application
+	      server keys on the site - so make sure they match.</p>
+	      <pre><code class="js-subscription-json"></code></pre>
+	    </section>
+    </div>
+  </main>
+</div>
+<!-- 본문 끝 -->
+<div id="include-body"></div>
+
+</body>
+<footer>
+	<script type="text/javascript">
+
+<!--------------------- common code start---------------------------->
+	$("#include-leftMenu").load("/eNotisPlus_APP/include/include-leftMenu.html");
+	$("#include-body").load("/eNotisPlus_APP/include/include-body.html");
+<!--------------------- common code end ----------------------------->
+
+$(document).ready(function(){
+	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
+});
+
+(function() {
+	const applicationServerPublicKey = 'BCNsgHIY_APfb6-PN_kKXc5pdXSCPrmVJqcdGzPydWf3YVaIoDfcU45mMAkSRAWM00tlUuqYdDbYSOn7_NquRTA';
+
+	const pushButton = document.querySelector('.js-push-btn');
+
+	let isSubscribed = false;
+	let swRegistration = null;
+
+	function urlB64ToUint8Array(base64String) {
+	  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+	  const base64 = (base64String + padding)
+	    .replace(/\-/g, '+')
+	    .replace(/_/g, '/');
+
+	  const rawData = window.atob(base64);
+	  const outputArray = new Uint8Array(rawData.length);
+
+	  for (let i = 0; i < rawData.length; ++i) {
+	    outputArray[i] = rawData.charCodeAt(i);
+	  }
+	  return outputArray;
+	}
+
+	// 01. 상태 초기화
+	function initialiseUI() {
+	  pushButton.addEventListener('click', function() {
+	    pushButton.disabled = true;
+	    if (isSubscribed) {
+		  unsubscribeUser();
+	    } else {
+	      subscribeUser();
+	    }
+	  });
+
+	  // Set the initial subscription value
+	  swRegistration.pushManager.getSubscription()
+	  .then(function(subscription) {
+	    isSubscribed = !(subscription === null);
+
+	    updateSubscriptionOnServer(subscription);
+
+	    if (isSubscribed) {
+	      console.log('User IS subscribed.');
+	    } else {
+	      console.log('User is NOT subscribed.');
+	    }
+
+	    updateBtn();
+	  });
+	}
+
+	// 02. 업데이트 버튼
+	function updateBtn() {
+	  if (Notification.permission === 'denied') {
+	    pushButton.textContent = 'Push Messaging Blocked.';
+	    pushButton.disabled = true;
+	    updateSubscriptionOnServer(null);
+	    return;
+	  }
+
+	  if (isSubscribed) {
+	    pushButton.textContent = 'Disable Push Messaging';
+	  } else {
+	    pushButton.textContent = 'Enable Push Messaging';
+	  }
+
+	  pushButton.disabled = false;
+	}
+
+	// 03. 서비스 워커 등록 시 상태 초기화
+	navigator.serviceWorker.register('../../service-worker.js')
+	.then(function(swReg) {
+	  console.log('Service Worker is registered', swReg);
+
+	  swRegistration = swReg;
+	  initialiseUI();
+	})
+
+	// 04. 구독자
+	function subscribeUser() {
+	  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+	  swRegistration.pushManager.subscribe({
+	    userVisibleOnly: true,
+	    applicationServerKey: applicationServerKey
+	  })
+	  .then(function(subscription) {
+	    console.log('User is subscribed:', subscription);
+
+	    updateSubscriptionOnServer(subscription);
+
+	    isSubscribed = true;
+
+	    updateBtn();
+	  })
+	  .catch(function(err) {
+	    console.log('Failed to subscribe the user: ', err);
+	    updateBtn();
+	  });
+	}
+
+	// 05. 비구독자
+	function unsubscribeUser() {
+	  swRegistration.pushManager.getSubscription()
+	  .then(function(subscription) {
+	    if (subscription) {
+	      return subscription.unsubscribe();
+	    }
+	  })
+	  .catch(function(error) {
+	    console.log('Error unsubscribing', error);
+	  })
+	  .then(function() {
+	    updateSubscriptionOnServer(null);
+
+	    console.log('User is unsubscribed.');
+	    isSubscribed = false;
+
+	    updateBtn();
+	  });
+	}
+
+	// 06. UI에 구독을 출력
+	function updateSubscriptionOnServer(subscription) {
+	  // TODO: Send subscription to application server
+
+	  const subscriptionJson = document.querySelector('.js-subscription-json');
+	  const subscriptionDetails =
+	    document.querySelector('.js-subscription-details');
+
+	  if (subscription) {
+	    subscriptionJson.textContent = JSON.stringify(subscription);
+	    subscriptionDetails.classList.remove('is-invisible');
+	  } else {
+	    subscriptionDetails.classList.add('is-invisible');
+	  }
+	}
+	}());
+	</script>
+
+</footer>
+</html>
