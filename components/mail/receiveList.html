@@ -102,9 +102,9 @@
 $(document).ready(function(){
 	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
 	
-    $("tr[name='idx_1']").on("click", function(e){ //row 클릭
+    $("#idx_1").on("click", function(e){ //row 클릭
         e.preventDefault();
-        fn_openMailDetail($(this));
+        fn_openMailDetail();
     });
 	
 	$("#btn_writeMail").click(function(){
@@ -112,7 +112,7 @@ $(document).ready(function(){
 	});
 });
  
-function fn_openMailDetail(obj){
+function fn_openMailDetail(){
     var comSubmit = new ComSubmit();
     comSubmit.setUrl("/eNotisPlus_APP/components/mail/viewDetail.html");
     comSubmit.setMethod("GET");
