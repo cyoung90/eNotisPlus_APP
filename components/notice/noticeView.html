@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>eNotis+</title>
+	
+	<script src="/eNotisPlus_APP/js/material/material.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/common.js" charset="utf-8"></script>
+	
+	<link rel="import" id="link-include-header" href="/eNotisPlus_APP/include/include-header.html">
+	
+	<style>
+	    #btn_writeMail {
+	      position: fixed;
+	      display: block;
+	      right: 0;
+	      bottom: 0;
+	      margin-right: 20px;
+	      margin-bottom: 20px;
+	      z-index: 900;
+	    }
+	</style>
+</head>
+<body>
+<!-- 본문 시작 -->
+<!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<header class="mdl-layout__header">
+	<div class="mdl-layout__header-row">
+		<span class="mdl-layout-title">메일</span>
+      	<div class="mdl-layout-spacer"></div>
+			<nav class="mdl-navigation"> 
+				<a class="mdl-navigation__link" href="javascript:alert('delete');">
+					<button	class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn_del">
+						<i class="material-icons">delete</i>
+					</button>
+				</a>
+				<a class="mdl-navigation__link" href="javascript:alert('share');">
+					<button	class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn_share">
+						<i class="material-icons">share</i>
+					</button>
+				</a>
+				<a class="mdl-navigation__link" href="javascript:alert('reply');">
+					<button	class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn_reply">
+						<i class="material-icons">reply</i>
+					</button>
+				</a>
+			</nav>
+		</div>
+	</header>
+<div id="include-leftMenu" class="mdl-layout__drawer"></div>
+	<main class="mdl-layout__content">
+		<div class="page-content">
+			<div class="demo-card mdl-card mdl-shadow--2dp mdl-color--grey-100" style="width: auto;min-height: 150;" id="mail_header">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">[SMOS] 회원데이터 생성, 컨텐츠복구</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<div>보낸사람 : <span class="mdl-chip mdl-chip--contact">
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">J</span>
+						    <span class="mdl-chip__text">김지환</span>
+						</span>
+					</div>
+					<div>참조 : <span class="mdl-chip mdl-chip--contact">
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">Y</span>
+						    <span class="mdl-chip__text">김영배</span>
+						</span><span class="mdl-chip mdl-chip--contact">
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">S</span>
+						    <span class="mdl-chip__text">유성현</span>
+						</span>
+					</div>
+					<div>날짜 : <span>2017년 12월 16일 오후 4:58</span></div>
+				</div>
+				<div class="mdl-card__menu">
+					<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+						<i class="material-icons">start</i>
+					</button>
+				</div>
+			</div>
+			<div class="demo-card mdl-card mdl-shadow--2dp" style="width: auto;min-height: 150 ; padding: 10px;white-space: pre-wrap;" id="mail-content">
+안녕하세요. 대교CNS 김지환 입니다.
+
+차기 오픈예정인 스마트MOS  3.2.9 버전 개발에서,
+과목추가 외 개발사항에 대한 내용 공유드립니다.
+
+1. 회원데이터 생성 서버 개선
+2. 컨텐츠DB 자동 복구
+			</div>
+		</div>
+	</main>
+</div>
+	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btn_writeMail">
+	  <i class="material-icons">edit</i>
+	</button>
+<!-- 본문 끝 -->
+<div id="include-body"></div>
+
+</body>
+<footer>
+	<script type="text/javascript">
+
+<!--------------------- common code start---------------------------->
+	$("#include-leftMenu").load("/eNotisPlus_APP/include/include-leftMenu.html");
+	$("#include-body").load("/eNotisPlus_APP/include/include-body.html");
+<!--------------------- common code end ----------------------------->
+
+$(document).ready(function(){
+	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
+	
+	$("#btn_writeMail").click(function(){
+		common.openWriteMail();
+	});
+});
+
+var common = {
+		// edit 버튼 클릭
+		openWriteMail : function(obj){
+			var comSubmit = new ComSubmit();
+            comSubmit.setUrl("/eNotisPlus_APP/components/mail/writeMail.html");
+            comSubmit.setMethod("GET");
+            comSubmit.submit();
+		}
+}		
+	</script>
+
+</footer>
+</html>
