@@ -130,7 +130,7 @@ $(document).ready(function(){
 function fn_openMailDetail(obj){
     var comSubmit = new ComSubmit();
     comSubmit.setUrl("/eNotisPlus_APP/components/mail/viewDetail.html");
-    comSubmit.addParam("idx", obj.attr("id"));
+    comSubmit.setMethod("GET");
     comSubmit.submit();
 }
 

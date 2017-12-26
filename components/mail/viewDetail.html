@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>eNotis+</title>
+	
+	<script src="/eNotisPlus_APP/js/material/material.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script src="/eNotisPlus_APP/js/common.js" charset="utf-8"></script>
+	
+	<link rel="import" id="link-include-header" href="/eNotisPlus_APP/include/include-header.html">
+	
+	<style>
+	    #btn_writeMail {
+	      position: fixed;
+	      display: block;
+	      right: 0;
+	      bottom: 0;
+	      margin-right: 20px;
+	      margin-bottom: 20px;
+	      z-index: 900;
+	    }
+	</style>
+</head>
+<body>
+<!-- 본문 시작 -->
+<!-- The drawer is always open in large screens. The header is always shown, even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<header class="mdl-layout__header">
+	<div class="mdl-layout__header-row">
+		<span class="mdl-layout-title">메일</span>
+      	<div class="mdl-layout-spacer"></div>
+			<nav class="mdl-navigation"> 
+				<a class="mdl-navigation__link" href="javascript:alert('delete');">
+					<button	class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn_del">
+						<i class="material-icons">delete</i>
+					</button>
+				</a>
+				<a class="mdl-navigation__link" href="javascript:alert('share');">
+					<button	class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn_share">
+						<i class="material-icons">share</i>
+					</button>
+				</a>
+				<a class="mdl-navigation__link" href="javascript:alert('reply');">
+					<button	class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn_reply">
+						<i class="material-icons">reply</i>
+					</button>
+				</a>
+			</nav>
+		</div>
+    </div>
+	</header>
+<div id="include-leftMenu" class="mdl-layout__drawer"></div>
+	<main class="mdl-layout__content">
+		<div class="page-content">
+			<div class="demo-card mdl-card mdl-shadow--2dp mdl-color--grey-100" style="width: auto;min-height: 150;" id="mail_header">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">메일 제목입니다.</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<div>
+						<h>보낸사람 : </h>
+						<span class="mdl-chip mdl-chip--contact">
+						    <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
+						    <span class="mdl-chip__text">Contact Chip</span>
+						</span>
+					</div>
+					<div>
+						날짜 : <span>2017년 9월 16일 오후 8:58</span>
+					</div>
+				</div>
+				<div class="mdl-card__menu">
+					<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+						<i class="material-icons">start</i>
+					</button>
+				</div>
+			</div>
+			<div class="demo-card mdl-card mdl-shadow--2dp" style="width: auto;min-height: 150 ; padding: 10px;white-space: pre-wrap;" id="mail-content">
+				같이 이상은 실로 인간의 부패를 방지하는 소금이라 할지니 인생에 가치를 주는 원질이 되는
+			것이다 그들은 앞이 긴지라 착목한는 곳이 원대하고 그들은 피가 더운지라 실현에 대한 자신과 용기가 있다 그러므로 그들은과 용기가 있다 그러므로 그들은
+			이상의 보배를 능히 품으며 그들의 이상은 아름답고 소담스러운 열매를 맺어 우리 인생을 풍부하게 하는 것이다 보라 청춘을
+			! 그들의 몸이 얼마나 튼튼하며 그들의 피부가 얼마나 생생하★
+			
+			며 그들의 눈에 무엇이 타오르고 있는가? 우리 눈이 그것을
+			보는 때에 우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다 뼈 끝에 스며들어 가는 열락의
+			소리다이것은 피어나기 전인 유소년에게서 구하지 못할 바이며
+			</div>
+		</div>
+	</main>
+</div>
+	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="btn_writeMail">
+	  <i class="material-icons">edit</i>
+	</button>
+<!-- 본문 끝 -->
+<div id="include-body"></div>
+
+</body>
+<footer>
+	<script type="text/javascript">
+
+<!--------------------- common code start---------------------------->
+	$("#include-leftMenu").load("/eNotisPlus_APP/include/include-leftMenu.html");
+	$("#include-body").load("/eNotisPlus_APP/include/include-body.html");
+<!--------------------- common code end ----------------------------->
+
+$(document).ready(function(){
+	if (!navigator.onLine){ alert("OFFLINE"); return false;}	// network Check
+	
+});
+
+var common = {
+		// edit 버튼 클릭
+		openWriteMail : function(obj){
+			var comSubmit = new ComSubmit();
+            comSubmit.setUrl("/eNotisPlus_APP/components/mail/writeMail.html");
+            comSubmit.setMethod("GET");
+            comSubmit.submit();
+		}
+}		
+	</script>
+
+</footer>
+</html>
