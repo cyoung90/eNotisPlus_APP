@@ -133,43 +133,39 @@
 		var loginCd = localStorage.loginInit;
 		
 		$(document).ready(function(){
-			var comSubmit = new ComSubmit();
-			comSubmit.setMethod("GET");
 			
 			// 주간식당메뉴
-			$(".main-btn1").onclick(function(e){
+			$(".main-btn1").click(function(e){
+				var comSubmit = new ComSubmit();
+				comSubmit.setMethod("GET");
 				comSubmit.setUrl("/eNotisPlus_APP/components/cafe/cafeMenu.html");
 				comSubmit.submit();
 			});
 			
 			//메일
-			$(".main-btn2").onclick(function(e){
+			$(".main-btn2").click(function(e){
+				var comSubmit = new ComSubmit();
+				comSubmit.setMethod("GET");
 				comSubmit.setUrl("/eNotisPlus_APP/components/mail/receiveList.html");
 				comSubmit.submit();
 			});
 			
 			// 공지사항
-			$(".main-btn3").onclick(function(e){
+			$(".main-btn3").click(function(e){
 				alert("서비스 준비중입니다.");
 				return false;
-				comSubmit.setUrl("/eNotisPlus_APP/components/cafe/cafeMenu.html");
-				comSubmit.submit();
 			});
 			
 			//	내선
-			$(".main-btn4").onclick(function(e){
+			$(".main-btn4").click(function(e){
 				alert("서비스 준비중입니다.");
 				return false;
-				comSubmit.setUrl("/eNotisPlus_APP/components/cafe/cafeMenu.html");
-				comSubmit.submit();
 			});
 			
 			// 날씨
-			$(".main-btn5").onclick(function(e){
+			$(".main-btn5").click(function(e){
 				alert("서비스 준비중입니다.");
 				return false;
-				comSubmit.setUrl("/eNotisPlus_APP/components/cafe/cafeMenu.html");
-				comSubmit.submit();
 			});
 		});
 		
