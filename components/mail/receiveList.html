@@ -129,7 +129,7 @@ $(document).ready(function(){
  
 function fn_openMailDetail(obj){
     var comSubmit = new ComSubmit();
-    comSubmit.setUrl("/eNotisPlus_APP/mail/viewDetail.html");
+    comSubmit.setUrl("/eNotisPlus_APP/components/mail/viewDetail.html");
     comSubmit.addParam("idx", obj.attr("id"));
     comSubmit.submit();
 }
@@ -138,7 +138,7 @@ var common = {
 		// edit 버튼 클릭
 		openWriteMail : function(obj){
 			var comSubmit = new ComSubmit();
-            comSubmit.setUrl("/eNotisPlus_APP/mail/writeMail.html");
+            comSubmit.setUrl("/eNotisPlus_APP/components/mail/writeMail.html");
             comSubmit.setMethod("GET");
             comSubmit.submit();
 		}
