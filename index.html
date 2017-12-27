@@ -103,14 +103,12 @@
 			$(".login_input").on("keydown", function(event){
 				if (event.keyCode == 13){
 					//fn_login();
-				}else {
-					return;
-				}
-				
+				}				
 			});
 			
 		});
 		
+		// 사용안함
 		function fn_login(){
 			if ( $("#id").val() == "e" || $("#pw").val() == "e" ){
 				$("#id").val("8300120");

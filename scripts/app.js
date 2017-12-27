@@ -73,6 +73,11 @@ console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.ID);
 		
 	});
 	
+	$(".login_input").on("keydown", function(event){
+		if (event.keyCode == 13){
+			$("#btn_login").click();
+		}				
+	});
 	
 	
 	
