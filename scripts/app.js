@@ -79,7 +79,147 @@ console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.NFUID);
 		}				
 	});
 	
-	
+	/*******************************************************************************
+	 * 
+	 * Push Manager
+	 * 
+	 ******************************************************************************/
+		
+		const applicationServerPublicKey = 'BF9HN4YgIVscJpOsvRmCygQ1HoIEMS68EpYrBj9bIqzUUBhIa75GpIRkJbtlzMYJnzJcOec5MxfPDG-BZqhlvas';
+
+		const pushButton = document.querySelector('.js-push-btn');
+
+		let isSubscribed = false;
+		let swRegistration = null;
+
+		function urlB64ToUint8Array(base64String) {
+		  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+		  const base64 = (base64String + padding)
+		    .replace(/\-/g, '+')
+		    .replace(/_/g, '/');
+
+		  const rawData = window.atob(base64);
+		  const outputArray = new Uint8Array(rawData.length);
+
+		  for (let i = 0; i < rawData.length; ++i) {
+		    outputArray[i] = rawData.charCodeAt(i);
+		  }
+		  return outputArray;
+		}
+
+		// 01. 상태 초기화
+		function initialiseUI() {
+		  pushButton.addEventListener('click', function() {
+	console.log("initialiseUI : isSubscribed", isSubscribed);
+		    pushButton.disabled = true;
+		    if (isSubscribed) {
+			  unsubscribeUser();
+		    } else {
+		      subscribeUser();
+		    }
+		  });
+
+		  // Set the initial subscription value
+		  swRegistration.pushManager.getSubscription()
+		  .then(function(subscription) {
+		    isSubscribed = !(subscription === null);
+
+		    updateSubscriptionOnServer(subscription);
+
+		    if (isSubscribed) {
+		      console.log('User IS subscribed.');
+		    } else {
+		      console.log('User is NOT subscribed.');
+		    }
+
+		    updateBtn();
+		  });
+		}
+
+		// 02. 업데이트 버튼
+		function updateBtn() {
+		  if (Notification.permission === 'denied') {
+		    pushButton.textContent = 'Push Messaging Blocked.';
+		    pushButton.disabled = true;
+		    updateSubscriptionOnServer(null);
+		    return;
+		  }
+
+		  if (isSubscribed) {
+		    pushButton.textContent = 'Disable Push Messaging';
+		  } else {
+		    pushButton.textContent = 'Enable Push Messaging';
+		  }
+
+		  pushButton.disabled = false;
+		}
+
+//		// 03. 서비스 워커 등록 시 상태 초기화
+//		navigator.serviceWorker.register('sw.js')
+//		.then(function(swReg) {
+//		  console.log('Service Worker is registered', swReg);
+	//
+//		  swRegistration = swReg;
+//		  initialiseUI();
+//		})
+
+		// 04. 구독자
+		function subscribeUser() {
+		  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+		  swRegistration.pushManager.subscribe({
+		    userVisibleOnly: true,
+		    applicationServerKey: applicationServerKey
+		  })
+		  .then(function(subscription) {
+		    updateSubscriptionOnServer(subscription);
+
+		    isSubscribed = true;
+
+		    updateBtn();
+		  })
+		  .catch(function(err) {
+		    console.log('Failed to subscribe the user: ', err);
+		    updateBtn();
+		  });
+		}
+
+		// 05. 비구독자
+		function unsubscribeUser() {
+		  swRegistration.pushManager.getSubscription()
+		  .then(function(subscription) {
+		    if (subscription) {
+		      return subscription.unsubscribe();
+		    }
+		  })
+		  .catch(function(error) {
+		    console.log('Error unsubscribing', error);
+		  })
+		  .then(function() {
+		    updateSubscriptionOnServer(null);
+
+		    console.log('User is unsubscribed.');
+		    isSubscribed = false;
+
+		    updateBtn();
+		  });
+		}
+
+		// 06. UI에 구독을 출력
+		function updateSubscriptionOnServer(subscription) {
+		  // TODO: Send subscription to application server
+
+		  const subscriptionJson = document.querySelector('.js-subscription-json');
+		  const subscriptionDetails = document.querySelector('.js-subscription-details');
+
+		  if (subscription) {
+		    subscriptionJson.textContent = JSON.stringify(subscription);
+		    console.log(JSON.stringify(subscription));
+		    $(".js-subscription-details").show();
+		  } else {
+			$(".js-subscription-details").hide();
+		  }
+		}
+		
 	
 	
 	
@@ -227,6 +367,10 @@ console.log("#4-2 request.readyState");
 				 .register('./service-worker.js')
 				 .then(function(registration) { 
 					 	console.log('ServiceWorker registration successful with scope:',  registration.scope);
+					 	
+					 	swRegistration = registration;
+					 	initialiseUI();
+					 	
 				 }).catch(function(error) {
 						console.log('ServiceWorker registration failed:', error);
 				 });
