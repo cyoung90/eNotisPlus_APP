@@ -10,6 +10,13 @@ var filesToCache = [
 	'/eNotisPlus_APP/include/include-body.html',
 	'/eNotisPlus_APP/include/include-header.html',
 	'/eNotisPlus_APP/include/include-leftMenu.html',
+	
+	//images
+	'/eNotisPlus_APP/images/bg_login.png',
+	'/eNotisPlus_APP/images/ico_checkbox_off.png',
+	'/eNotisPlus_APP/images/ico_checkbox_on.png',
+	'/eNotisPlus_APP/images/logo.png',
+	'/eNotisPlus_APP/images/user.jpg',
 
 	//componets
 	'/eNotisPlus_APP/components/home/home.html',

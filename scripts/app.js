@@ -30,7 +30,7 @@ console.log("# 1-1 localStorage.autoLogin >>>>>>>>>>>>>>>>>>>>>>>>", localStorag
 		// 자동로그인
 		if ( localStorage.autoLogin == 'true' ){
 			var user = JSON.parse( localStorage.user );
-			$("[for='chk_autoLogin']").addClass("is-checked");
+			$("[for='chkMemID']").addClass("is-checked");
 console.log("# 1-2 >>>>>>>>>>>>>>>>>>>>>>>>", user);
 			
 			if ( !gfn_isNull(user.NFUID) ) {
@@ -236,7 +236,7 @@ console.log("#2-1 app.saveUserInfo");
 		data.LAST_LOGIN_DT = lastUpdateDt;
 		
 		var user = JSON.stringify(data);
-		var autoLogin = document.getElementById("chk_autoLogin").checked;
+		var autoLogin = document.getElementById("chkMemID").checked;
 		
 		// 로컬에 저장
 	    localStorage.user = user;	

@@ -1,3 +1,41 @@
+@charset "utf-8";
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, figure, figcaption { margin: 0; padding: 0 }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block }
+img { border: 0 }
+ul, ol, li { list-style: none; padding: 0; margin: 0 }
+fieldset { border: none }
+button { cursor: pointer; overflow: visible }
+a { color: inherit; text-decoration: none }
+a:hover, a:active { text-decoration: none }
+small { font-size: smaller !important }
+em { font-style: normal }
+textarea { resize: none }
+table { border-spacing: 0; border-collapse: collapse; }
+caption { width: 0; height: 0; font-size: 0; line-height: 0; visibility: hidden; overflow: hidden }
+legend { border: 0; width: 1px; height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; clip: rect(0 0 0 0) }
+button { border: 0 none }
+html { overflow-y: scroll; font-family: nanum }
+font { font-family: dotum, 'ë‹ì›€' }
+/* Display */
+.fl { float: left !important }
+.fr { float: right !important }
+.clear { clear: both !important }
+.clear:after { content: ''; display: block; clear: both }
+.group:before, .group:after { content: ""; display: table }
+.group:after { clear: both }
+.ir { background-color: transparent; border: 0; overflow: hidden }
+.ir:before { content: ""; display: block; width: 0; height: 150% }
+.blind { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px }
+.blind.focusable:active, .blind.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto }
+.sighted { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto }
+.hidden { display: none !important; visibility: hidden }
+.invisible { visibility: hidden }
+hr { clear: both; display: block; visibility: hidden; width: 1px; height:20px; font-size: 0; line-height: 0 }
+strong {font-weight:bold !important}
+*{-webkit-text-size-adjust:none}
+
+
+
 .layer {
 	position: absolute;
 	top: -20%;
@@ -64,31 +102,32 @@ td {
 	font-size: 80px;
 }
 
-.onepassText {
-	font-weight: bold;
-	font-size: x-large;
+.loginText {
+	font-weight: normal;
+	font-size: 200%;
 	text-align: left;
+	color:#707070;
 }
 
-/* ÄÁÅÙÃ÷ ÆäÀÌÁö ¿©¹é */
+/* ì»¨í…ì¸  íŽ˜ì´ì§€ ì—¬ë°± */
 .mdl-layout__content .page-content { padding:8px }
 .mdl-layout__content .page-content .mdl-card { margin:10px }
 
 
-/* ¸Þ´º ¼³Á¤À§ÇÑ */
+/* ë©”ë‰´ ì„¤ì •ìœ„í•œ */
 	.mdl-layout-title a:link    { color: red; text-decoration: none;}
 	.mdl-layout-title a:visited { color: black; text-decoration: none;}
 	.mdl-layout-title a:hover   { color: black; text-decoration: none; }
 
 	.mdl-layout__drawer-button > .material-icons { margin-top: 10px;}
 	
-	/* user ÇÁ·ÎÇÊ */
+	/* user í”„ë¡œí•„ */
 	.demo-avatar {
 	  width: 60px;
 	  height: 60px;
 	  border-radius: 30px;
 	}
-	/* user ÇÁ·ÎÇÊ */
+	/* user í”„ë¡œí•„ */
 	.demo-drawer-header {
 	  box-sizing: border-box;
 	  display: -webkit-flex;
@@ -103,7 +142,7 @@ td {
 	  padding: 16px 16px 0 16px;
 	  height: 151px;
 	}
-	/* user ÇÁ·ÎÇÊ */
+	/* user í”„ë¡œí•„ */
 	.demo-avatar-dropdown {
 	  display: -webkit-flex;
 	  display: -ms-flexbox;
@@ -119,3 +158,91 @@ td {
 	}
 	ul { list-style:none; padding-left:0px; }
 	
+
+	
+	
+	
+html, body { min-height: device-height; background-color: #fff; overflow-y: auto; font-family:Noto Sans KR, HelveticaNeue-Light, AppleSDGothicNeo-Light, Malgun Gothic, sans-serif; font-size:16px }
+#wrap { width: 100%; }
+header { width: 100%; height:60px; background: #fff url(../images/logo.png) no-repeat 50% 50%; border-bottom: 2px solid #ddd; background-size: 94px 40px; }
+	
+
+/********************************************* [login] *********************************************/
+#login {padding: 0 1.5em; position:relative}
+#login .login_info {padding-top:125px; font-size:12px; color:#848484; text-align:center; border-bottom:2px solid #f5f5f5; margin-top:40px; background: url(../images/bg_login.png) no-repeat 50% 0; height:56px; width:100%; background-size:192px auto;}
+#login h2 { display:inline-block;font-size: 36px; font-weight:normal; line-height: 18px; height: 18px; text-align: left; color: #707070; margin-top: 36px; margin-bottom: 25px; margin-right:20px }
+#login .log_box {position:relative}
+#login input { border-radius: 0; color: #666; background-color:#fff }
+#login input[type="text"] { width: 100%; font-size: 0.750em; padding:12px 10px;background: #fff; border: 1px solid #ddd; background-size: 10px 12px; box-sizing:border-box;  }
+#login input[type="password"] { width: 100%; font-size: 0.750em; padding:12px 10px;background: #fff; border: 1px solid #ddd;  background-size: 14px 8px; box-sizing:border-box; margin:6px auto 12px; }
+#login input[type="text"]:focus { outline: none; border: 1px solid #1da1df; background: #fff;  background-size: 10px 12px; box-sizing:border-box;  }
+#login input[type="password"]:focus { outline: none; font-size: 0.750em; padding:12px 10px 12px; border: 1px solid #1da1df; background: #fff; background-size: 14px 8px; box-sizing:border-box;  }
+#login input.btn_login {  width: 100%; border: none; border-radius: 0 !important; border-bottom: 2px solid #1da1df; display: block; height: 64px;background-color: #1da1df; color: #fff; font-size: 18px; cursor: pointer; -webkit-appearance: none }
+#login .radio{display:inline-block;height:19px;margin-top: 27px}
+#login .loginType{text-align:center}
+#login .loginTypeArea{display:inline-block}
+
+/** check login **/
+.check_box { float:left; margin-top: 8px; overflow: hidden }
+.custom-radio{float:left;margin-right:10px}
+.custom-radio:last-child{margin-right:0}
+.custom-checkbox input, .custom-radio input { position: absolute; display: none; margin: 0; z-index: 0; }
+.custom-checkbox label, .custom-radio label{ position: relative; z-index: 1; font-size: 12px; cursor: pointer; line-height: 24px; display: inline-block; text-indent: 30px }
+
+/* states */
+.check_mg { float: left; margin-right: 8px }
+.custom-checkbox label { background: url(../images/ico_checkbox_off.png) no-repeat 0 0; background-size: 24px 24px; color:#666 }
+.custom-checkbox label.hover, .custom-checkbox label.focus{ background: url(../images/ico_checkbox_off.png) no-repeat 0 0; background-size: 24px 24px }
+.custom-checkbox label.checked{ background: url(../images/ico_checkbox_on.png) no-repeat 0 0; background-size: 24px 24px }
+.custom-checkbox label.checkedHover, .custom-checkbox label.checkedFocus { background: url(../images/ico_checkbox_on.png) no-repeat 0 0; background-size: 24px 24px }
+.custom-checkbox label.focus{ outline: 1px dotted #ccc; word-wrap: break-word }
+
+.radio_mg { float: left}
+.custom-radio label { background: url(../images/ico_radio_off.png) no-repeat 0 0; background-size: 24px 24px; text-decoration:underline; color:#666 }
+.custom-radio label.hover, .custom-radio label.focus, { background: url(../images/ico_radio_off.png) no-repeat 0 0; background-size: 24px 24px }
+.custom-radio label.checked { background: url(../images/ico_radio_on.png) no-repeat 0 0; background-size: 24px 24px }
+.custom-radio label.checkedHover, .custom-radio label.checkedFocus { background: url(../images/ico_radio_on.png) no-repeat 0 0; background-size: 24px 24px }
+.custom-radio label.focus { outline: 1px dotted #ccc; word-wrap: break-word }
+	
+.right { float:right; margin-top: 8px; overflow: hidden }
+.right span { font-size:0.8em; color:#707070 }
+
+ @media all and (min-width:320px) {
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.36009732360097%; }
+ }
+ @media all and (min-width:360px) { /* Galaxy S3~6, Note2~5,  iPhone 6s Plus */
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.484%; }
+ }
+ @media all and (min-width:375px) { /* iPhone 6, iPhone 6s */
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.52279635258359%; }
+ }
+ @media all and (min-width:384px) { /* Nexus, LG Optimus View */
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.54437869822485%; }
+ }
+ @media all and (min-width:414px) { /* iPhone 6 Plus */
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.60869565217391%; }
+ }
+ @media all and (min-width:480px) {
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.71889400921659%; }
+	.overlay .pop{padding:0 20%}
+ }
+ @media all and (min-width:640px) {
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.88439955106622%; }
+	.overlay .pop{padding:0 20%}
+ }
+ @media all and (min-width:720px) {
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.93768545994065%; }
+	#login h2 { margin-right:35px }
+	.custom-radio{margin-right:25px}
+ }
+ @media all and (min-width:768px) { /* iPad Retina */
+	.login-button-join, .login-button-id, .login-button-pw { width: 32.96398891966759%; }
+	
+ }
+ @media all and (min-width:800px) {
+	.login-button-join, .login-button-id, .login-button-pw { width: 70%; }
+	#login {padding: 0 30%; }
+	#login input[type="text"] { width: 100%;}
+	#login input[type="password"] { width: 100%;}
+	#login input.btn_login {width:100%}
+	.overlay .pop{padding:0 30%}
