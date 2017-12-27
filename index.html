@@ -77,8 +77,14 @@
 	</div>
 	<dialog class="mdl-dialog">
 		<div class="mdl-dialog__content" style="text-align: center;">
-			<p id="qrCodeName"><img src="images/QRCodeImg.png"/></p>
-			<h4>Short URL : <span id="shortUrl">goo.gl/ryYDgg</span></h4>
+			<button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+			    Enable Push Messaging
+			</button><br/>
+			<section class="subscription-details js-subscription-details is-invisible">
+			  <span class="js-subscription-json" style="font-size: xx-small;"></span>
+			</section>
+<!-- 			<p id="qrCodeName"><img src="images/QRCodeImg.png"/></p>
+			<h4>Short URL : <span id="shortUrl">goo.gl/ryYDgg</span></h4> -->
 		</div>
 		<div class="mdl-dialog__actions">
 			<button type="button" class="mdl-button close">닫기</button>
@@ -86,17 +92,6 @@
 	</dialog>
 <!-- 본문 끝 -->
 	<form id="commonForm" name="commonForm"></form>
-	
-	<div class="mdl-card__title mdl-card--expand">
-		<p>
-		  <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-		    Enable Push Messaging
-		  </button>
-		</p>
-		<section class="subscription-details js-subscription-details is-invisible">
-		  <span class="js-subscription-json"></span>
-		</section>
-	</div>
 </body>
 <footer>
 
