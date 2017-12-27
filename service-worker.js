@@ -82,11 +82,12 @@ self.addEventListener('activate', function(e) {
 //01. 푸시 설정
 self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
-  console.log('[Service Worker] Push had this data: '+ "${event.data.text()}");
 
+  var pushText =  event.data.text();
+    
   const title = 'eNotis+';
   const options = {
-    body: 'eNotis+',
+    body: pushText,
     icon: 'images/app-icons/icon-72x72.png',
     badge: 'images/app-icons/icon-72x72.png'
   };
