@@ -33,9 +33,9 @@ console.log("# 1-1 localStorage.autoLogin >>>>>>>>>>>>>>>>>>>>>>>>", localStorag
 			$("[for='chk_autoLogin']").addClass("is-checked");
 console.log("# 1-2 >>>>>>>>>>>>>>>>>>>>>>>>", user);
 			
-			if ( !gfn_isNull(user.ID) ) {
-console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.ID);
-				$("#id").val( user.ID );
+			if ( !gfn_isNull(user.NFUID) ) {
+console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.NFUID);
+				$("#id").val( user.NFUID );
 				
 				localStorage.loginInit = "auto";
 				var comSubmit = new ComSubmit();
