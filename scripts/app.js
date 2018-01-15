@@ -85,7 +85,7 @@ console.log("# 1-3 >>>>>>>>>>>>>>>>>>>>>>>>", user.NFUID);
 	 * 
 	 ******************************************************************************/
 		
-		const applicationServerPublicKey = 'BF9HN4YgIVscJpOsvRmCygQ1HoIEMS68EpYrBj9bIqzUUBhIa75GpIRkJbtlzMYJnzJcOec5MxfPDG-BZqhlvas';
+		const applicationServerPublicKey = 'BKGmZdV-_v9UZYOuUySiBLtyK_doJ5rmpsvHuWvte8LYk7LjZ91V_skp4_-oXhi5UKjuzAnX6kAuex9r5e41fq4';
 
 		const pushButton = document.querySelector('.js-push-btn');
 
