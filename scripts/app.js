@@ -251,9 +251,9 @@ console.log("#2-1 app.saveUserInfo");
 	// 로그인
 	app.loginProcess = function(id, pw) {
 
-		var url = 'https://beacon.daekyo.com:8443/eNotisPlus/main/loginProcess.do?id=' + id + '&pw=' + pw;
+		//var url = 'https://beacon.daekyo.com:8443/eNotisPlus/main/loginProcess.do?id=' + id + '&pw=' + pw;
 		//var url = 'http://localhost/main/loginProcess.do?id=' + id + '&pw=' + pw;
-		//var url = 'http://192.168.56.188:8080/main/loginProcess2?id=' + id + '&callback=' + callback;
+		var url = 'http://192.168.56.188:8080/main/loginProcess?id=' + id + '&pw=' + pw;
 console.log("#3-1 app.loginProcess");
 		if ( 'caches' in window ) {
 console.log("#3-2 'caches' in window");
